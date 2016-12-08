@@ -1,0 +1,238 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.4
+-- http://www.phpmyadmin.net
+--
+-- 主机: localhost
+-- 生成日期: 2008 年 05 月 03 日 02:14
+-- 服务器版本: 5.0.51
+-- PHP 版本: 5.2.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- 数据库: `online`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `big_test`
+--
+
+CREATE TABLE IF NOT EXISTS `big_test` (
+  `id` int(10) NOT NULL auto_increment,
+  `bigtitle` tinyint(2) NOT NULL COMMENT '大题',
+  `sscore` int(3) NOT NULL COMMENT '每小题分数',
+  `test_subject_id` int(10) NOT NULL COMMENT '所属科目',
+  `test_num` int(3) NOT NULL COMMENT '题数',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=gb2312 AUTO_INCREMENT=22 ;
+
+--
+-- 导出表中的数据 `big_test`
+--
+
+INSERT INTO `big_test` (`id`, `bigtitle`, `sscore`, `test_subject_id`, `test_num`) VALUES
+(21, 1, 2, 1, 5),
+(2, 3, 2, 6, 0),
+(17, 4, 3, 10, 10),
+(16, 2, 4, 10, 10),
+(15, 5, 12, 1, 2),
+(8, 3, 2, 10, 12),
+(9, 5, 12, 10, 0),
+(18, 2, 4, 1, 10),
+(19, 4, 2, 1, 10),
+(20, 3, 2, 1, 12);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `brief_answer`
+--
+
+CREATE TABLE IF NOT EXISTS `brief_answer` (
+  `id` int(10) NOT NULL auto_increment,
+  `brief_topic` text NOT NULL COMMENT '简答问题',
+  `brief_ans` text NOT NULL COMMENT '简答答案',
+  `subject_id` int(10) NOT NULL COMMENT '所属科目',
+  `testkey` varchar(300) NOT NULL COMMENT '关键字',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=gb2312 AUTO_INCREMENT=105 ;
+
+--
+-- 导出表中的数据 `brief_answer`
+--
+
+INSERT INTO `brief_answer` (`id`, `brief_topic`, `brief_ans`, `subject_id`, `testkey`) VALUES
+(101, 'fdsfdsfdsfdsfffffffffffffffffffffff11111111222222222222', 'dsfdsfdsffffffffffffffffffffffffffffffff11111111111222', 1, 'fsdfds,fdsf'),
+(102, 'fdsafdasffffffffffffffffffffff', 'fffffffffffffffffffffffffff', 1, 'ffffff,fgdfgd,sssss');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `chengji`
+--
+
+CREATE TABLE IF NOT EXISTS `chengji` (
+  `id` int(10) NOT NULL auto_increment,
+  `students` int(10) NOT NULL COMMENT '所属学生',
+  `subject` int(10) NOT NULL COMMENT '所属科目',
+  `score` int(3) NOT NULL COMMENT '分数',
+  `huankao` tinyint(1) NOT NULL default '0' COMMENT '缓考标记',
+  `quekao` tinyint(1) NOT NULL default '0' COMMENT '缺考标记',
+  `kscore` int(4) NOT NULL COMMENT '客观题分数',
+  `zscore` int(4) NOT NULL COMMENT '主观题分数',
+  `testdate` date NOT NULL COMMENT '考试时间',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=gb2312 AUTO_INCREMENT=12 ;
+
+--
+-- 导出表中的数据 `chengji`
+--
+
+INSERT INTO `chengji` (`id`, `students`, `subject`, `score`, `huankao`, `quekao`, `kscore`, `zscore`, `testdate`) VALUES
+(9, 3, 1, 0, 0, 0, 2, 0, '2008-05-02'),
+(7, 4, 1, 0, 0, 0, 6, 0, '2008-04-30'),
+(8, 4, 10, 0, 0, 0, 0, 0, '2008-04-30'),
+(10, 3, 10, 0, 0, 0, 0, 0, '2008-05-02'),
+(11, 3, 6, 0, 0, 0, 0, 0, '2008-05-02');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `small_result`
+--
+
+CREATE TABLE IF NOT EXISTS `small_result` (
+  `id` int(10) NOT NULL auto_increment,
+  `smalltitle_c` varchar(150) NOT NULL COMMENT '选项内容',
+  `smalltitle_id` int(10) NOT NULL COMMENT '所属小题',
+  `xx` varchar(15) NOT NULL COMMENT '选项',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=gb2312 AUTO_INCREMENT=26 ;
+
+--
+-- 导出表中的数据 `small_result`
+--
+
+INSERT INTO `small_result` (`id`, `smalltitle_c`, `smalltitle_id`, `xx`) VALUES
+(11, 'aaaaaaaaaaaaaaaaaaaab', 17, 'a'),
+(8, 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbba', 17, 'b'),
+(9, 'ccccccccccccccccccccccccc', 17, 'c'),
+(10, 'ddddddddddddddddddddddddddddddddddd', 17, 'd'),
+(13, 'aaaaaaaaaaaaaa', 18, 'a'),
+(14, 'eeeeeeeeeeeeeeeeee', 17, 'e'),
+(15, 'bbbbbbbbbbbbbbbb', 18, 'b'),
+(16, 'ccccccccccccccccc', 18, 'c'),
+(17, 'ddddddddddddd', 18, 'd'),
+(18, 'aaaaaaaaa', 100, 'a'),
+(19, 'bbbbbbbbbbbbb', 100, 'b'),
+(20, 'ccccccccccccc', 100, 'c'),
+(21, 'ddddddd', 100, 'd'),
+(22, 'aaaaaaaaaaaa', 101, 'a'),
+(23, 'bbbbbbbbbbbbbb', 101, 'b'),
+(24, 'ccccccccccc', 101, 'c'),
+(25, 'dddddddddddd', 101, 'd');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `small_test`
+--
+
+CREATE TABLE IF NOT EXISTS `small_test` (
+  `id` int(10) NOT NULL auto_increment,
+  `smalltitle` varchar(300) NOT NULL COMMENT '小题内容',
+  `bigtitle_id` tinyint(2) NOT NULL COMMENT '所属大题',
+  `bt_answer` varchar(300) NOT NULL COMMENT '本题答案',
+  `subject_id` int(10) NOT NULL COMMENT '所属科目',
+  `tpans` varchar(20) NOT NULL COMMENT '填空或判断的答案',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=gb2312 AUTO_INCREMENT=104 ;
+
+--
+-- 导出表中的数据 `small_test`
+--
+
+INSERT INTO `small_test` (`id`, `smalltitle`, `bigtitle_id`, `bt_answer`, `subject_id`, `tpans`) VALUES
+(17, '22222222222222fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'c', 1, ''),
+(100, '11111111111111111111', 1, 'a', 1, ''),
+(18, 'qqqqqqqqqqqqqqqqqq', 2, 'abc', 1, ''),
+(19, 'tttttttttttttttttttttttttttttfffffffffff', 3, '23', 1, ''),
+(20, 'ppppppppppppppppppppppppp', 4, '1', 1, ''),
+(21, 'pppppppppppppppppppp', 4, '1', 1, ''),
+(22, 'ppppppppppppppppp', 4, '1', 1, ''),
+(101, 'dddddddddddddddddddddddd', 2, 'ad', 1, ''),
+(102, '11111111111111111111111111', 3, 'qqq,456,789', 1, ''),
+(103, '789ghgydtrhhkjhoiserarkuhhl', 3, '56', 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `students`
+--
+
+CREATE TABLE IF NOT EXISTS `students` (
+  `stunum` varchar(25) NOT NULL COMMENT '学号',
+  `realyname` varchar(20) NOT NULL COMMENT '姓名',
+  `passw` varchar(100) NOT NULL COMMENT '密码',
+  `stuclass` varchar(50) NOT NULL COMMENT '所属班级',
+  `proression` varchar(50) NOT NULL COMMENT '所属专业',
+  `id` int(10) NOT NULL auto_increment,
+  `kgtestid` varchar(200) NOT NULL COMMENT '客观试题id',
+  `zgtestid` varchar(150) NOT NULL COMMENT '主观试题id',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=gb2312 AUTO_INCREMENT=8 ;
+
+--
+-- 导出表中的数据 `students`
+--
+
+INSERT INTO `students` (`stunum`, `realyname`, `passw`, `stuclass`, `proression`, `id`, `kgtestid`, `zgtestid`) VALUES
+('0540123', '孙庆宇', 'e35cf7b66449df565f93c607d5a81d09', '05401', '计算机应用', 3, '100,17,101,18,102,19,103,21,20,22', '102,101'),
+('0540126', 'ffffff', 'e35cf7b66449df565f93c607d5a81d09', '05402', '计算机应用', 4, '100,17,101,18,103,102,19,22,21,20', '101,102');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `test_subject`
+--
+
+CREATE TABLE IF NOT EXISTS `test_subject` (
+  `id` int(10) NOT NULL auto_increment,
+  `test_sub` varchar(50) NOT NULL COMMENT '考试科目',
+  `test_time` int(3) NOT NULL COMMENT '考试时间',
+  `addtime` date NOT NULL COMMENT '添加时间',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=gb2312 AUTO_INCREMENT=100000 ;
+
+--
+-- 导出表中的数据 `test_subject`
+--
+
+INSERT INTO `test_subject` (`id`, `test_sub`, `test_time`, `addtime`) VALUES
+(10, '计算机应用基础3', 60, '2008-04-10'),
+(1, '计算机应用基础', 90, '2008-04-03'),
+(6, '计算机', 60, '2008-04-03');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `to_admin`
+--
+
+CREATE TABLE IF NOT EXISTS `to_admin` (
+  `id` int(4) NOT NULL auto_increment,
+  `test_admin` varchar(20) NOT NULL COMMENT '管理员',
+  `password` varchar(100) NOT NULL COMMENT '管理员密码',
+  `test_notice` text NOT NULL COMMENT '公告',
+  `locked` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=gb2312 AUTO_INCREMENT=4 ;
+
+--
+-- 导出表中的数据 `to_admin`
+--
+
+INSERT INTO `to_admin` (`id`, `test_admin`, `password`, `test_notice`, `locked`) VALUES
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '注意：\r\n考试中答题后注意提交\r\n提交后（如有简答题也要提交）再点击“交卷退出系统”\r\n否则无成绩！系统不自动收卷，距考试结束五分钟时系统会有提示', 0);

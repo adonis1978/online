@@ -1,0 +1,28 @@
+body{background-image: url("background.gif")}
+body {margin:5px 5px 5px 5px} /* 页面边距 */
+body,p,table,a,form,input,textarea,select,botton {font-family:"Verdana","宋体"; font-size:12px; color:#000000} /* 页面、段落、表格、链接、表单的默认字体 */
+
+form {margin:0px} /* 表单边框宽度、边框颜色、表单边距、内容边距 */
+input,textarea,select,botton {padding:2px 2px 0px 2px} /* 表单边框宽度、边框颜色、表单边距、内容边距 */
+
+a:link    {text-decoration:none;      color:#222222} /* 未访问链接的颜色 */
+a:visited {text-decoration:none;      color:#0000FF} /* 已访问链接的颜色 */
+a:hover   {text-decoration:underline; color:#EE0000} /* 鼠标移到链接的颜色 */
+
+.empha {color:#FF0000} /* 强调字体 */
+.menu  {line-height:125%;} /* 菜单字体 */
+
+/*Div*/
+#testBg { background:#3366ff; padding:2px; width:280px;}
+#testInfo { border:1px solid #FFF; padding:7px; background:#8BAEE5;}
+#test{position:absolute;left:120px;width:75%;top:50px;background:#FFFFFF;word-break:break-all;padding:5px;}
+#head{position:absolute;left:120px;width:80%;top:145px}
+#header{position:absolute;left:120px;width:80%;top:0}
+#middle{position:absolute;left:120px;width:10%;top:190px}
+#usermiddle{position:absolute;left:350px;width:50%;top:230px}
+#testmiddle{position:absolute;left:350px;width:20%;top:180px;background:#8BAEE5}
+#middleright{position:absolute;left:350px;width:30%;top:208px;font: bold 18px "宋体";}
+#middlerighttext{position:absolute;left:370px;width:48%;top:228px;font: bold 13px arial;background:#FFFFFF;padding:5px;}
+#footer{position:absolute;left:120px;width:80%;bottom:0;}
+#orderBg { background:#3366ff; padding:2px; width:1021px; }
+#orderInfo { border:1px solid #FFF; padding:7px; background:#8BAEE5; font: bold 11px arial;}
